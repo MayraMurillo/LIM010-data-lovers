@@ -1,0 +1,89 @@
+body {
+  background-image: url('Banco-Mundial.png');
+  height: 100%;
+  background-size: cover;
+  -moz-background-size:cover;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  display: flex;
+  box-sizing: border-box;
+
+
+}
+
+.container {
+  width: 33%;
+  height: 100%;
+  padding: 5%;
+  margin: auto;
+  background-color: #eeeaeb;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.logo{
+  width: 90%;
+  margin-left: 10%;
+}
+
+.image{
+  width: 83%;
+  display: flex;
+  margin-left: 7%;
+}
+
+.form-item{
+  display: block;
+  text-align: left;
+  margin-left: 14%;
+  padding: 2%;
+  width: 70%;
+  height: 8%;
+  font-family: 'Open Sans', sans-serif;
+  font-style: bold italic;
+
+}
+
+
+#paragraph1{
+text-align: right;
+font-family: 'Lato', sans-serif;
+
+}
+
+p{
+  font-family: 'Oswald', sans-serif;
+}
+
+.button{
+transform:none;
+width: 116px;
+height: 35px;
+color: rgb(236, 240, 243);
+background-color: rgb(18, 113, 151);
+align-items: center
+}
+
+#alert{
+  color:red;
+}
+
+
+@media screen and (min-width: 480px) and (max-width:780px) {
+  .image{
+    width: 70%;
+  }
+  .container {
+    width: 50%;
+    height: 90%;
+  }
+
+
+}
+
+@media screen and (max-width:480px) {
+  .container {
+    width: 70%;
+    height: 93%;
+  }
+}

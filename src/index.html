@@ -1,18 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-    <!-- <script src="./data/lol/lol.js"></script> -->
-    <!-- <script src="./data/pokemon/pokemon.js"></script> -->
-    <!-- <script src="./data/worldbank/worldbank.js"></script> -->
-    <script src="data.js"></script>
-    <script src="main.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalabe=no, initial-scale=1.0, maximun-scale=1.0">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <header>
+  </header>
+  <main class="main">
+    <div class="container">
+      <figure class="logo">
+        <img class="image" src="logo.png" alt="world_bank_logo">
+      </figure>
+      <form class="login">
+        <div class="sheet-1">
+          <label class="form-item">Correo Electrónico</label>
+          <input class="form-item" type="email" id="email" />
+          <br>
+          <label class="form-item">Contraseña</label>
+          <input class="form-item" type="password" id="pw" />
+        </div>
+      </form>
+      <p id="paragraph1" class="text">¿Olvidaste tu contraseña?</p>
+      <button class="button" type="button" id="sbmt">Ingresa</button>
+      <p id="alert"></p>
+      <p>¿No tienes una cuenta? <strong>Regístrate</strong></p>
+    </div>
+  </main>
+  <footer class="footer">
+  </footer>
+  <!-- <script src="./data/lol/lol.js"></script> -->
+  <!-- <script src="./data/pokemon/pokemon.js"></script> -->
+  <!-- >script src="./data/worldbank/worldbank.js"></script> -->
+  <script src="main.js"></script>
+</body>
+
 </html>
