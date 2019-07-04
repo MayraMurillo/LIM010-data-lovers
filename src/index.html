@@ -1,18 +1,71 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-    <!-- <script src="./data/lol/lol.js"></script> -->
-    <!-- <script src="./data/pokemon/pokemon.js"></script> -->
-    <!-- <script src="./data/worldbank/worldbank.js"></script> -->
-    <script src="data.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+  maximum-scale=1">
+
+</head>
+
+<body id="containerr">
+    <header>
+        <div id="view-one" class="contenedor">
+            <img class="imagee" src="logo.PNG" alt="logooo">
+            <ul class="nav">
+				<li><a>Indicadores por país</a>
+					<ul>
+						<li><a href="">Peru</a></li>
+						<li><a href="">Mexico</a></li>
+						<li><a href="">Chile</a></li>
+						<li><a href="">Brasil</a></li>
+					</ul>
+				</li>
+				<li><a>Indicadores por sexo</a>
+					<ul>
+						<li><a href="">Hombre</a></li>
+						<li><a href="">Mujer</a></li>
+					</ul>
+				</li>
+                <li><a>Ordenar indicadores</a>
+					<ul>
+						<li><a href="">Ascendente</a></li>
+						<li><a href="">Descendenter</a></li>
+					</ul>
+				</li>
+			</ul>
+        </div> 
+    </header>
+    <main class="main">
+        <div id="login" class="container">
+            <figure class="logo">
+                <img class="image" src="logo.png" alt="world_bank_logo">
+            </figure>
+            <form class="login">
+                <div class="sheet-1">
+                    <label class="form-item">Correo Electrónico</label>
+                    <input class="form-item" type="email" id="email" />
+                    <br>
+                    <label class="form-item">Contraseña</label>
+                    <input class="form-item" type="password" id="pw" />
+                </div>
+            </form>
+            <p id="paragraph1" class="text">¿Olvidaste tu contraseña?</p>
+            <button class="button" type="button" id="sbmt">Ingresa</button>
+            <p id="alert"></p>
+            <p>¿No tienes una cuenta? <strong>Regístrate</strong></p>
+        </div>
+        <div id="view-two" class="view-two">
+    </main>
+    <footer class="footer">
+    </footer>
+    <script src="./data/worldbank/worldbank.js"></script>    <script src="data.js"></script>
     <script src="main.js"></script>
-  </body>
+</body>
+
 </html>

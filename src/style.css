@@ -1,0 +1,224 @@
+/*.container {
+  position: absolute;
+  left: 26.32%;
+  right: 26.18%;
+  top: 9.67%;
+  bottom: 22.66%;
+  
+  background: linear-gradient(0deg, #EFEBEB, #EFEBEB), linear-gradient(180deg, #F7F7F7 0%, rgba(255, 255, 255, 0) 100%);
+  border: 1px solid #F7F7F7;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+}*/
+/*
+body{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(156, 148, 137);
+  height: 100vh;
+  margin: 25px;
+  margin-top: 5px;
+}
+.contenedor {
+  display: none;
+  background-color: aquamarine;
+  align-items: center;
+  justify-content: space-around;
+}
+.imagee {
+  height: 60px;
+  margin-top: 20px;
+}
+.main {
+  background-image: url('imagenes/Banco-Mundial.png');
+  height: 100vh;
+  padding: 0px 5%;
+}
+
+.container {
+  background-color:rgba(255, 255, 255, 0.7);
+ /* text-align: center;
+  display: flex;
+  flex-direction:column;
+  padding: 30px 0px;
+  flex-wrap: wrap;
+  margin: 3% auto;
+  width: 400px;
+  height: 466px;
+  
+}
+.container figure {
+  height: 0.8%;
+  margin-bottom: 61px;
+}
+.form-item{
+   display: block;
+   text-align: left;
+   margin-left: 85px;
+   padding: 0%;
+   width: 295px;
+  height: 42px;
+}
+.text{
+  text-align: right;
+  margin-right: 147px;
+  width: 382px;
+ height: 42px;
+}
+.button{
+transform:none;
+width: 116px;
+height: 35px;
+color: rgb(236, 240, 243);
+background-color: rgb(18, 113, 151);
+}
+#alert{
+  color:red;
+}
+.sheet-1{
+  margin-left: -77px;
+}
+
+ .show{
+  display: flex;
+}
+.hide{
+  display: none;
+}*/
+* {
+  margin:0px;
+  padding:0px;
+}
+body{
+  background-image: url('imagenes/113fe.png');
+  background-repeat: no-repeat;
+  background-size:cover;
+    -moz-background-size:cover;
+    -webkit-backdrop-size:cover;
+    -o-background-size:cover;
+  
+  /*height: 100vh;
+  padding: 0px 5%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 25px;
+  margin-top: 5pX;*/
+}
+.contenedor {
+  display: none;
+  margin:auto;
+  /* width:500px; */
+  font-family:Arial, Helvetica, sans-serif;
+  justify-content: space-around;
+  align-items: center;
+  height: 98px;
+  background: linear-gradient(0deg, rgb(19, 117, 141), rgb(52, 190, 224)), linear-gradient(180deg, #F7F7F7 0%, rgba(255, 255, 255, 0) 100%);
+  border: 1px solid rgb(66, 98, 104);
+  box-sizing: border-box;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+ul, ol {
+  list-style:none;
+}
+.nav{
+  display: inline-block;
+}
+.nav > li {
+  float:left;
+}
+.bodyImage{
+ background-image: none !important;
+ 
+}
+
+.nav li a {
+  background-color: #002f54;
+  color:#fff;
+  text-decoration:none;
+  padding:10px 12px;
+  display:block;
+  -webkit-transition:all 500ms ease;
+  -o-transition:all 500ms ease;
+  transition: all 500ms ease ;
+}
+
+.nav li a:hover {
+  background-color: #8fdbf8;
+  border-radius: 50px;
+}
+
+.nav li ul {
+  display:none;
+  position:absolute;
+  min-width:140px;
+}
+
+.nav li:hover > ul {
+  display:block;
+}
+
+.nav li ul li {
+  position:relative;
+
+}
+
+.nav li ul li ul {
+  right:-140px;
+  top:0px;
+}
+.imagee {
+  height: 60px;
+  /* margin-top: 38px; */
+}
+.container {
+  background-color:rgba(255, 255, 255, 0.7);
+ /* text-align: center;*/
+  display: flex;
+  flex-direction:column;
+  padding: 30px 0px;
+  flex-wrap: wrap;
+  margin: 3% auto;
+  width: 400px;
+  height: 466px;
+  
+}
+.container figure {
+  height: 0.8%;
+  margin-bottom: 61px;
+}
+.form-item{
+   display: block;
+   text-align: left;
+   margin-left: 85px;
+   padding: 0%;
+   width: 295px;
+  height: 42px;
+}
+.text{
+  text-align: right;
+  margin-right: 147px;
+  width: 382px;
+ height: 42px;
+}
+.button{
+transform:none;
+width: 116px;
+height: 35px;
+color: rgb(236, 240, 243);
+background-color: rgb(18, 113, 151);
+}
+#alert{
+  color:red;
+}
+.sheet-1{
+  margin-left: -77px;
+}
+
+ .show{
+  display: flex;
+}
+.hide{
+  display: none;
+}
