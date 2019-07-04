@@ -2,46 +2,82 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalabe=no, initial-scale=1.0, maximun-scale=1.0">
-  <title>Data Lovers</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
 
+    <meta charset="utf-8">
+    <title>Data Lovers</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+  maximum-scale=1">
 
 </head>
 
 <body>
-  <header>
-  </header>
-  <main class="main">
-    <div class="container">
-      <figure class="logo">
-        <img class="image" src="logo.png" alt="world_bank_logo">
-      </figure>
-      <form class="login">
-        <div class="sheet-1">
-          <label class="form-item">Correo Electrónico</label>
-          <input class="form-item" type="email" id="email" />
-          <br>
-          <label class="form-item">Contraseña</label>
-          <input class="form-item" type="password" id="pw" />
+    <header>
+        <div id="view-one" class="contenedor">
+            <img class="imagee" src="logo.png" alt="logooo">
+            <ul class="nav">
+                <li><a>Indicadores por país</a>
+                    <ul>
+                        <li><a href="#peru">Peru</a></li>
+                        <li><a href="">Mexico</a></li>
+                        <li><a href="">Chile</a></li>
+                        <li><a href="">Brasil</a></li>
+                    </ul>
+                </li>
+                <li><a>Indicadores por sexo</a>
+                    <ul>
+                        <li><a href="">Hombre</a></li>
+                        <li><a href="">Mujer</a></li>
+                    </ul>
+                </li>
+                <li><a>Ordenar indicadores</a>
+                    <ul>
+                        <li><a href="">Ascendente</a></li>
+                        <li><a href="">Descendenter</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div> 
+    </header>
+    <main class="main">
+        <div id="login" class="container">
+            <figure class="logo">
+                <img class="image" src="logo.png" alt="world_bank_logo">
+            </figure>
+            <form class="login">
+                <div class="sheet-1">
+                    <label class="form-item">Correo Electrónico</label>
+                    <input class="form-item" type="email" id="email" />
+                    <br>
+                    <label class="form-item">Contraseña</label>
+                    <input class="form-item" type="password" id="pw" />
+                </div>
+            </form>
+            <p id="paragraph1" class="text">¿Olvidaste tu contraseña?</p>
+            <button class="button" type="button" id="sbmt">Ingresa</button>
+            <p id="alert"></p>
+            <p>¿No tienes una cuenta? <strong>Regístrate</strong></p>
         </div>
-      </form>
-      <p id="paragraph1" class="text">¿Olvidaste tu contraseña?</p>
-      <button class="button" type="button" id="sbmt">Ingresa</button>
-      <p id="alert"></p>
-      <p>¿No tienes una cuenta? <strong>Regístrate</strong></p>
-    </div>
-  </main>
-  <footer class="footer">
-  </footer>
-  <!-- <script src="./data/lol/lol.js"></script> -->
-  <!-- <script src="./data/pokemon/pokemon.js"></script> -->
-  <!-- >script src="./data/worldbank/worldbank.js"></script> -->
-  <script src="main.js"></script>
+        <div id="view-two" class="view-two">
+
+
+<section>
+  <div id="peru">
+<p>Indicadores Perú</p>
+<li></li>
+</div>
+</section>
+
+
+    </main>
+    <footer class="footer">
+    </footer>
+
+    <script src="worldbank.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
