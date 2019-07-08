@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
     <meta charset="utf-8">
@@ -13,38 +14,38 @@
 
 </head>
 
-<body id="containerr">
+<body>
     <header>
         <div id="view-one" class="contenedor">
-            <img class="imagee" src="logo.PNG" alt="logooo">
+            <img class="imagee" src="./imagenes/logoO.jpg" alt="logooo">
             <ul class="nav">
-				<li><a>Indicadores por país</a>
-					<ul>
-						<li><a href="">Peru</a></li>
-						<li><a href="">Mexico</a></li>
-						<li><a href="">Chile</a></li>
-						<li><a href="">Brasil</a></li>
-					</ul>
-				</li>
-				<li><a>Indicadores por sexo</a>
-					<ul>
-						<li><a href="">Hombre</a></li>
-						<li><a href="">Mujer</a></li>
-					</ul>
-				</li>
+                <li><a>Indicadores por país</a>
+                    <ul>
+                        <li><a id="peruMenu" href="#peru">Peru</a></li>
+                        <li><a id="mexicoMenu" href="#mexico">Mexico</a></li>
+                        <li><a id="chileMenu" href="#chile">Chile</a></li>
+                        <li><a id="brazilMenu" href="#brazil">Brasil</a></li>
+                    </ul>
+                </li>
+                <li><a>Indicadores por sexo</a>
+                    <ul>
+                        <li><a href="">Hombre</a></li>
+                        <li><a href="">Mujer</a></li>
+                    </ul>
+                </li>
                 <li><a>Ordenar indicadores</a>
-					<ul>
-						<li><a href="">Ascendente</a></li>
-						<li><a href="">Descendenter</a></li>
-					</ul>
-				</li>
-			</ul>
-        </div> 
+                    <ul>
+                        <li><a href="">Ascendente</a></li>
+                        <li><a href="">Descendenter</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </header>
     <main class="main">
         <div id="login" class="container">
             <figure class="logo">
-                <img class="image" src="logo.png" alt="world_bank_logo">
+                <img class="image" src="./imagenes/logoO.jpg" alt="world_bank_logo">
             </figure>
             <form class="login">
                 <div class="sheet-1">
@@ -61,10 +62,53 @@
             <p>¿No tienes una cuenta? <strong>Regístrate</strong></p>
         </div>
         <div id="view-two" class="view-two">
+            <section>
+                <div id="peru">
+                </div>
+            </section>
+
+            <section>
+                <div id="mexico">
+                </div>
+            </section>
+
+            <section>
+                <div id="chile">
+                </div>
+            </section>
+
+            <section>
+                <div id="brazil">
+                    <li></li>
+                </div>
+            </section>
+    <div id="view-three">
+            <section>
+                    <div id="peruPercent">
+                    </div>
+                </section>
+    
+                <section>
+                    <div id="mexicoPercent">
+                    </div>
+                </section>
+    
+                <section>
+                    <div id="chilePercent">
+                    </div>
+                </section>
+    
+                <section>
+                    <div id="brazilPercent">
+                    </div>
+                </section>
+
+    </div>
     </main>
     <footer class="footer">
     </footer>
-    <script src="./data/worldbank/worldbank.js"></script>    <script src="data.js"></script>
+
+    <script src="data/worldbank/worldbank.js"></script>
     <script src="main.js"></script>
 </body>
 
