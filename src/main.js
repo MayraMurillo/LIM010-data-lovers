@@ -99,6 +99,9 @@ mexico.innerHTML = showData(mexicoData);
 chile.innerHTML = showData(chileData);
 brazil.innerHTML = showData(brazilData);
 
+//ORDENANDO INDICADORES
+const indicadorAsc = document.getElementById('indi-asc');
+const indicadorDsc = document.getElementById('indi-dsc');
 
 const information = Object.values(WORLDBANK.PER.indicators);
 const newData = () => {
@@ -113,6 +116,25 @@ dataStorage = newArray;
   }
 }
 newData();
+const information = Object.keys(WORLDBANK.PER.indicators[0].data);
+const porcentaje = Object.values(WORLDBANK.PER.indicators[0].data);
+const nuevaData = () => {
+  let arreglo = [];
+  for (let i=0; i<information.length; i++) {
+  arreglo.push(information[i],porcentaje[i])
+}
+console.log(arreglo);
+return arreglo;
+}
+nuevaData();
+
+indicadorAsc.innerHTML = nuevaData(peruData);
+  
+  
+  
+
+
+
 
 /*
 const newData = () => {
