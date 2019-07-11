@@ -13,7 +13,7 @@ let counter = 0;
 
 // jalando datos de contraseña //
 submit.addEventListener('click', () => {
-  if (password.value === 'L') {
+  if (password.value === 'LABORATORIA') {
     // alert('hola');
     loginn.classList.add('hide');
     // view_one.classList.replace('hide', 'show');
@@ -56,28 +56,28 @@ chileView.classList.add('hide');
 brazilView.classList.add('hide');
 
 // funcionalidad de las vistas //
-peruOption.addEventListener("click", () =>{
+peruOption.addEventListener("click", () => {
   peruView.classList.remove('hide');
   mexicoView.classList.add('hide');
   chileView.classList.add('hide');
   brazilView.classList.add('hide');
 })
 
-mexicoOption.addEventListener("click", () =>{
+mexicoOption.addEventListener("click", () => {
   peruView.classList.add('hide');
   mexicoView.classList.remove('hide');
   chileView.classList.add('hide');
   brazilView.classList.add('hide');
 })
 
-chileOption.addEventListener("click", () =>{
+chileOption.addEventListener("click", () => {
   peruView.classList.add('hide');
   mexicoView.classList.add('hide');
   chileView.classList.remove('hide');
   brazilView.classList.add('hide');
 })
 
-brazilOption.addEventListener("click", () =>{
+brazilOption.addEventListener("click", () => {
   peruView.classList.add('hide');
   mexicoView.classList.add('hide');
   chileView.classList.add('hide');
@@ -86,8 +86,8 @@ brazilOption.addEventListener("click", () =>{
 
 const showData = (data) => {
   let show = '';
-  for (let i=0; i<data.length; i++) {
-    let call = `<li><a href=""> ${data[i].indicatorName} </a></li>`;
+  for (let i = 0; i < data.length; i++) {
+    let call = `<li><a href = ""> ${data[i].indicatorName}</a></li>`;
 
     show += call
   }
@@ -105,35 +105,49 @@ const indicadorDsc = document.getElementById('indi-dsc');
 
 const information = Object.keys(WORLDBANK.PER.indicators[0].data);
 const porcentaje = Object.values(WORLDBANK.PER.indicators[0].data);
+
 const nuevaData = () => {
   let arreglo = [];
-  for (let i=0; i<information.length; i++) {
-  arreglo.push(information[i],porcentaje[i])
-}
-console.log(arreglo);
-return arreglo;
-}
-nuevaData();
-
-indicadorAsc.innerHTML = nuevaData(peruData);
-  
-  
-  
-
-
-
-
-/*
-const showInformation = (peruData) => {
-  let show = {};
-  for (let i=0; i<peruData.length; i++) {
-    let call = peruData[i].data;
-
-    show += call
+  for (let i = 0; i < information.length; i++) {
+    arreglo.push(information[i], porcentaje[i])
   }
-  return show
-};
+  return arreglo
+}
 
-peruPercent.innerHTML = showInformation(peruData);
+const arrayData = nuevaData();
+console.log(arrayData)
+const recorreData = (data) => {
+  const obj = {};
+  for (let i = 0; i < data.length; i++) {
+    if (i % 2 === 0) {
+      // console.log(data[i]);
+      obj[data[i]] = data[i + 1]
+    }
+  }
+  console.log(obj)
+  return obj
+}
 
-*/
+const averobject = recorreData(arrayData)
+const arrayano = Object.keys(averobject);
+const anio = document.getElementById('peruAnio');
+const percent = document.getElementById('peruPercent');
+const imprimirData = (data) => {
+
+  const keys = Object.keys(data);
+
+  for (let i = 0; i < keys.length; i++) {
+    anio.innerHTML += keys[i]
+    percent.innerHTML += data[keys[i]]
+    console.log(keys[i])
+    console.log(data[keys[i]]);
+  }
+
+}
+
+imprimirData(averobject)
+
+
+
+
+

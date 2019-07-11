@@ -31,9 +31,15 @@ Nuestro proyecto busca brindar información estadística sobre los paises latnoa
 
  Se realizó el prototipo de alta fidelidad del **logeo** en *figma*, donde se hizo la presentación al usuario para ver si es de su facil comprensión; el usuario indico que la cantidad de intentos al ingresar la contraseña sea de 3 intentos; sugirió tambien que al ingresar el correo electronico, luego pulsar *enter* para que pueda pasar a ala casilla de la contraseña y al boton ingresar sin la necesidad del cliqueo.
 
+### Prototipo de *baja* fidelidad 
+ ![Prototipo de baja fidelidad](./imagenes/prot1.jpeg)
+
  > Historia 2:
 
  Como usuaria quiero poder seleccionar un país y visualizar la data de sus respectivos indicadores para analizar el comportamiento demográfico/económico de cada región. 
+
+ ### Prototipo de *baja* fidelidad 
+ ![Prototipo de baja fidelidad](./imagenes/prot2.jpeg)
 
 
 
