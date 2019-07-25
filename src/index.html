@@ -3,113 +3,132 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1,
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1,
   maximum-scale=1">
 
 </head>
 
 <body>
-    <header>
-        <div id="view-one" class="contenedor">
-            <img class="imagee" src="./imagenes/logoO.jpg" alt="logooo">
-            <ul class="nav">
-                <li><a>Indicadores por país</a>
-                    <ul id="menuPaises">
-                        <li><a id="peruMenu" href="#peru">Peru</a></li>
-                        <li><a id="mexicoMenu" href="#mexico">Mexico</a></li>
-                        <li><a id="chileMenu" href="#chile">Chile</a></li>
-                        <li><a id="brazilMenu" href="#brazil">Brasil</a></li>
-                    </ul>
-                </li>
-                <li><a>Indicadores por sexo</a>
-                    <ul>
-                        <li><a href="">Hombre</a></li>
-                        <li><a href="">Mujer</a></li>
-                    </ul>
-                </li>
-                <li><a>Ordenar indicadores</a>
-                    <ul>
-                        <li><a id="indi-asc" href="">Ascendente</a></li>
-                        <li><a id="indi-dsc" href="">Descendenter</a></li>
-                    </ul>
-                </li>
-            </ul>
+  <header>
+
+    <section id="encabezado" class="">
+      <div id="view-one" class="contenedor ocultar">
+        <img class="imagee" src="./imagenes/logoO.jpg" alt="logooo">
+        <select class="paises" name="select" id="select-pais">
+          <option disabled selected>Selecciona un pais</option>
+          <option id="PER" value="PER">Peru</option>
+          <option id="MEX" value="MEX">Mexico</option>
+          <option id="CHL" value="CHL">Chile</option>
+          <option id="BRA" value="BRA">Brasil</option>
+        </select>
+      </div>
+    </section>
+
+  </header>
+  <main class="main">
+
+    <!--PANTALLA LOGIN: -->
+    <div id="login" class="container">
+      <figure class="logo">
+        <img class="image" src="./imagenes/logoO.jpg" alt="world_bank_logo">
+      </figure>
+      <form class="login">
+        <div class="sheet-1">
+          <label class="form-item">Correo Electrónico</label>
+          <input class="form-item" type="email" id="email" />
+          <br>
+          <label class="form-item">Contraseña</label>
+          <input class="form-item" type="password" id="pw" />
+          <p id="paragraph1" class="text">¿Olvidaste tu contraseña?</p>
+          <button class="button" type="button" id="sbmt">Ingresa</button>
+          <p id="alert"></p>
+          <p>¿No tienes una cuenta? <strong>Regístrate</strong></p>
         </div>
-    </header>
-    <main class="main">
-        <div id="login" class="container">
-            <figure class="logo">
-                <img class="image" src="./imagenes/logoO.jpg" alt="world_bank_logo">
-            </figure>
-            <form class="login">
-                <div class="sheet-1">
-                    <label class="form-item">Correo Electrónico</label>
-                    <input class="form-item" type="email" id="email" />
-                    <br>
-                    <label class="form-item">Contraseña</label>
-                    <input class="form-item" type="password" id="pw" />
-                    <p id="paragraph1" class="text">¿Olvidaste tu contraseña?</p>
-                    <button class="button" type="button" id="sbmt">Ingresa</button>
-                    <p id="alert"></p>
-                    <p>¿No tienes una cuenta? <strong>Regístrate</strong></p>
-                </div>
-            </form>
-        </div>
-        <div id="view-two" class="view-two">
-            <section>
-                <div id="peru">
-                </div>
-            </section>
+      </form>
+    </div>
 
-            <section>
-                <div id="mexico">
-                </div>
-            </section>
+    <!--PANTALLA 2 - INICIO: -->
+    <div id="view-two" class="ocultar">
 
-            <section>
-                <div id="chile">
-                </div>
-            </section>
+      <div id="slider" class="slider">
+        <ul>
+          <li><img src="./imagenes/peru.jpg" alt=""></li>
+          <li><img src="./imagenes/mexico.jpg" alt=""></li>
+          <li><img src="./imagenes/chile.jpg" alt=""></li>
+          <li><img src="./imagenes/brazil.jpg" alt=""></li>
+        </ul>
+      </div>
 
-            <section>
-                <div id="brazil">
-                </div>
-            </section>
-            <div id="view-three">
-                <section>
-                    <div id="peruAnio"></div>
-                    <div id="peruPercent"></div>
-                </section>
+    </div>
 
-                <section>
-                    <div id="mexicoPercent">
-                    </div>
-                </section>
+    <!--PANTALLA 3: -->
+    <div id="view-three" class="ocultar">
+      <div id="pais-Peru" class="indicado-peru">
+        <ul id="pais" class="scroll">
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+      <div id="nombreIndicador"></div>
+      <table id="tablas"></table>
+      <div id="rangos">
+        <p> Indique el año que quiere ver para este indicador</p>
+        <label>Desde:
+          <input type="number" id="year_one" max="2017" min="1960" value="1960">
+        </label>
+        <label>Hasta:
+          <input type="number" id="year_two" max="2017" min="1960" value="2007">
+        </label>
+        <button type="submit" id="buscador" class="buscar">FILTRAR</button>
 
-                <section>
-                    <div id="chilePercent">
-                    </div>
-                </section>
+      </div>
+    </div>
 
-                <section>
-                    <div id="brazilPercent">
-                    </div>
-                </section>
 
-            </div>
-    </main>
-    <footer class="footer">
-    </footer>
-    <script src="prueba.js"></script>
-    <script src="data.js"></script>
-    <script src="data/worldbank/worldbank.js"></script>
-    <script src="main.js"></script>
+    <!--PANTALLA 3: -->
+    <div id="view-for">
+    </div>
+
+
+    <section>
+      <p id="mexicoIndicator"></p>
+
+      <table id="mexicoTable"></table>
+      </div>
+    </section>
+
+    <section>
+      <p id="chileIndicator"></p>
+      <table id="chileTable"></table>
+    </section>
+
+    <section>
+      <p id="brazilIndicator"></p>
+      <table id="brazilTable"></table>
+
+    </section>
+
+
+    <!--PANTALLA DE BLOQUEO: -->
+    <div id="pantalla-bloqueo" class="ocultar">
+      <h1> Lo sentimos, agotaste tus intentos. </h1>
+    </div>
+
+
+
+  </main>
+  <footer class="footer">
+    <p><strong>Derechos reservados @mayra & @gabby </strong></p>
+  </footer>
+  <script src="prueba.js"></script>
+  <script src="data.js"></script>
+  <script src="data/worldbank/worldbank.js"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>
