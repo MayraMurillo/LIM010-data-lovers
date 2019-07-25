@@ -1,139 +1,91 @@
 // --- ESTO ES TODO LO RELACIONADO A LA PRIMERA PANTALLA --- //
 // declarando variables //
-const password = document.getElementById('pw');
-const submit = document.getElementById('sbmt');
 const newParagraph = document.getElementById('alert');
-
-//variable de vistas 
-const loginn = document.getElementById('login');
+const carrucel = document.getElementById('slider');
+//variable de vistas
 const view_one = document.getElementById('view-one');
+const numInicial = document.getElementById('year_one');
+const numFinal = document.getElementById('year_two');
+const btnBuscar = document.getElementById('buscador');
+const loginn = document.getElementById('login');
+const seleccionarPais = document.getElementById('select-pais');
+const indicadorporPaises = document.getElementById('pais-Peru');
+const tablasIndicador = document.getElementById('tablas');
 
-// asignando contador de intentos //
-let counter = 0;
+datos = WORLDBANK;
+arrDatos = Object.values(WORLDBANK);
 
-// jalando datos de contraseña //
-submit.addEventListener('click', () => {
-  if (password.value === 'L') {
-    // alert('hola');
-    loginn.classList.add('hide');
-    // view_one.classList.replace('hide', 'show');
-    view_one.classList.add('show');
 
-    counter = 0;
-  } else if (counter < 3) {
-    counter++;
-    newParagraph.innerHTML = 'Contraseña errada, tenga cuidado. Sólo tiene 3 intentos';
+
+//Contador de intentos: 
+const obtenerClick = document.getElementById('sbmt');
+const contraseña = document.getElementById('pw');
+const usuario = document.getElementById('email');
+let cuenta = 2;
+obtenerClick.addEventListener('click', () => {
+  if (contraseña.value === '1' && usuario.value === '1') {
+    document.getElementById('login').classList.add('ocultar');
+    document.getElementById('view-two').classList.remove('ocultar');
+    document.getElementById('view-one').classList.remove('ocultar');
+    contraseña.value = '';
+    usuario.value = '';
+  } else if (cuenta === 0) {
+    document.getElementById('pantalla-bloqueo').classList.remove('ocultar');
+    document.getElementById('login').classList.add('ocultar');
+    contraseña.value = '';
   } else {
-    newParagraph.innerHTML = 'ACCESO DENEGADO';
+    newParagraph.innerHTML = 'Contraseña errada, tenga cuidado. Sólo tiene 3 intentos';
+    contraseña.value = '';
+    cuenta--;
   }
 });
-
-//--- ACA VA TODO LO RELACIONADO A LA SEGUNDA PANTALLA --- //
-// declaracion de data //
-const peruData = WORLDBANK.PER.indicators;
-const mexicoData = WORLDBANK.MEX.indicators;
-const chileData = WORLDBANK.CHL.indicators;
-const brazilData = WORLDBANK.BRA.indicators;
-
-
-// declaracion de vistas del menu PAISES //
-const peruOption = document.getElementById('peruMenu');
-const mexicoOption = document.getElementById('mexicoMenu');
-const chileOption = document.getElementById('chileMenu');
-const brazilOption = document.getElementById('brazilMenu');
-
-// declaracion y ocultar despliegue de paises //
-const peruView = document.getElementById('peru');
-const mexicoView = document.getElementById('mexico');
-const chileView = document.getElementById('chile');
-const brazilView = document.getElementById('brazil');
-const peruPercentage = document.getElementById('peruPercent')
-
-//ocultar vistas de despliegue de pais //
-peruView.classList.add('hide');
-mexicoView.classList.add('hide');
-chileView.classList.add('hide');
-brazilView.classList.add('hide');
-
-// funcionalidad de las vistas //
-peruOption.addEventListener("click", () =>{
-  peruView.classList.remove('hide');
-  mexicoView.classList.add('hide');
-  chileView.classList.add('hide');
-  brazilView.classList.add('hide');
-})
-
-mexicoOption.addEventListener("click", () =>{
-  peruView.classList.add('hide');
-  mexicoView.classList.remove('hide');
-  chileView.classList.add('hide');
-  brazilView.classList.add('hide');
-})
-
-chileOption.addEventListener("click", () =>{
-  peruView.classList.add('hide');
-  mexicoView.classList.add('hide');
-  chileView.classList.remove('hide');
-  brazilView.classList.add('hide');
-})
-
-brazilOption.addEventListener("click", () =>{
-  peruView.classList.add('hide');
-  mexicoView.classList.add('hide');
-  chileView.classList.add('hide');
-  brazilView.classList.remove('hide');
-})
-
-const showData = (data) => {
-  let show = '';
-  for (let i=0; i<data.length; i++) {
-    let call = `<li><a href=""> ${data[i].indicatorName} </a></li>`;
-
-    show += call
+const mostrarIndicador = (callIndicadorPais) => {
+  let string = '';
+  for (let i = 0; i < callIndicadorPais.length; i++) {
+    string += `<li id=${i}>${callIndicadorPais[i]}</li>`;
+    // string += `<li><a href="#" <li id=${i}>${callIndicadorPais[i]}></a></li>`
   }
-  return show;
+  return string;
 };
 
-peru.innerHTML = showData(peruData);
-mexico.innerHTML = showData(mexicoData);
-chile.innerHTML = showData(chileData);
-brazil.innerHTML = showData(brazilData);
+let paisSeleccionado = '';
+seleccionarPais.addEventListener('change', (event) => {
+  document.getElementById('view-three').classList.remove('ocultar');
+  document.getElementById('view-two').classList.add('ocultar');
+  paisSeleccionado = event.target.value;
+  console.log(event.target.value);
+  console.log(indicadorPaises(datos, paisSeleccionado));
+  indicadorporPaises.innerHTML = mostrarIndicador(indicadorPaises(datos, paisSeleccionado));
+  return paisSeleccionado;
+});
 
-//ORDENANDO INDICADORES
-const indicadorAsc = document.getElementById('indi-asc');
-const indicadorDsc = document.getElementById('indi-dsc');
+indicadorporPaises.addEventListener('click', (event) => {
+  let nombreIndicadoryCodPais = event.target.id;
+  const dataa = datos[paisSeleccionado].indicators[nombreIndicadoryCodPais].data;
+  const arrayData = Object.entries(dataa);
+  console.log(datos[paisSeleccionado].indicators[nombreIndicadoryCodPais].data);
 
-const information = Object.keys(WORLDBANK.PER.indicators[0].data);
-const porcentaje = Object.values(WORLDBANK.PER.indicators[0].data);
-const nuevaData = () => {
-  let arreglo = [];
-  for (let i=0; i<information.length; i++) {
-  arreglo.push(information[i],porcentaje[i])
-}
-console.log(arreglo);
-return arreglo;
-}
-nuevaData();
-
-indicadorAsc.innerHTML = nuevaData(peruData);
-  
-  
-  
+  let templateTable = `
+ <tr>
+   <th>Año</th>
+   <th>Porcentaje</th> 
+ </tr>`;
+  let tablaDatos = document.getElementById('tablas');
 
 
+  for (let i = 0; i < arrayData.length; i++) {
+    if (arrayData[i][1] !== '') {
+      templateTable += `<tr>
+     <td>${arrayData[i][0]}</td>
+     <td>${parseInt(arrayData[i][1]).toFixed(2)}%</td>
+   </tr>`
+    }
 
-
-/*
-const showInformation = (peruData) => {
-  let show = {};
-  for (let i=0; i<peruData.length; i++) {
-    let call = peruData[i].data;
-
-    show += call
+    const indicadores = document.getElementById('nombreIndicador');
+    indicadores.innerHTML = nombreIndicadoryCodPais;
+    indicadorporPaises.classList.add('hide');
+    tablaDatos.innerHTML = templateTable;
   }
-  return show
-};
 
-peruPercent.innerHTML = showInformation(peruData);
+});
 
-*/
