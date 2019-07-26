@@ -62,6 +62,7 @@ El usuario desea visualizar el promedio de los porcentajes del indicador selecci
 ### Prototipo de *baja* fidelidad de la historia de usuario *3*, *4* y *5*.
 ![Prototipo de baja fidelidad](![view3](https://user-images.githubusercontent.com/50469950/61731941-2adbb780-ad42-11e9-8efc-9bc8c9e90ce9.jpeg)
 
+![Zeplin de alta](![zeplin](https://zpl.io/VqLmBjG)
 
 
 
