@@ -1,7 +1,7 @@
 const paises = (data) => {
    const arrPaises = [];
    for (let i = 0; i < data.length; i++) {
-      arrPaises.push(arrDatos[i].countryName);
+      arrPaises.push(data[i].countryName);
    }
    return arrPaises;
 };
@@ -9,6 +9,7 @@ const paises = (data) => {
 const indicadorPaises = (data, pais) => {
    let arrIndicadores = [];
    let indicadores = data[pais].indicators;
+   console.log(data[pais].indicators);
    for (let i = 0; i < indicadores.length; i++) {
       arrIndicadores.push(indicadores[i]['indicatorName']);
    }

@@ -15,8 +15,6 @@ const tablasIndicador = document.getElementById('tablas');
 datos = WORLDBANK;
 arrDatos = Object.values(WORLDBANK);
 
-
-
 //Contador de intentos: 
 const obtenerClick = document.getElementById('sbmt');
 const contraseña = document.getElementById('pw');
@@ -45,6 +43,7 @@ const mostrarIndicador = (callIndicadorPais) => {
     string += `<li id=${i}>${callIndicadorPais[i]}</li>`;
     // string += `<li><a href="#" <li id=${i}>${callIndicadorPais[i]}></a></li>`
   }
+  console.log(string)
   return string;
 };
 
@@ -52,6 +51,7 @@ let paisSeleccionado = '';
 seleccionarPais.addEventListener('change', (event) => {
   document.getElementById('view-three').classList.remove('ocultar');
   document.getElementById('view-two').classList.add('ocultar');
+
   paisSeleccionado = event.target.value;
   console.log(event.target.value);
   console.log(indicadorPaises(datos, paisSeleccionado));
