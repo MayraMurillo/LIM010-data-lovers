@@ -148,45 +148,34 @@ tablaDatos.classList.add('hide');
 
 
 });
-/*
+
 const filtrar = document.getElementById('buscador');
 filtrar.addEventListener('click', (event) => {
-  const inicial = document.getElementById('year_one');
-  console.log(inicial.value)
-  const final = document.getElementById('year_two');
-  console.log(final.value)
-  let tablaDatos = document.getElementsByTagName('tr');
+  const inicial = document.getElementById('year_one').value;
+  const parseIni = parseInt(inicial);
+  const final = document.getElementById('year_two').value;
+  const parseFin = parseInt(final)
   const dataa = datos[paisSeleccionado].indicators[indexIndicador].data;
-  console.log(dataa)
   const arrayData = Object.entries(dataa);
-  console.log(arrayData)
-  const años = Object.keys(dataa);
-  const porcentajes = Object.values(dataa);
-  console.log(años)
-  console.log(porcentajes)
+  const arrayDataFilter = arrayData.filter(arrayData => arrayData[0] >= parseIni && arrayData[0] <= parseFin);
 
-  let templateTable1 = '';
+  templateTable = `
+  <tr>
+    <th>Año</th>
+    <th>Porcentaje</th> 
+  </tr>`;
 
- for(let i=0; i<años.length; i++){
-   if(años >= inicial && años <= final)
+   for(let i=0; i<arrayDataFilter.length; i++){
 
-   templateTable1 = `
-      <tr>
-        <th>Año</th>
-        <th>Porcentaje</th> 
-      </tr>`;
-        templateTable1 += `<tr>
-        <td>${años[i]}</td>
-        <td>${parseInt(porcentajes[i]).toFixed(2)}%</td>
+        templateTable += `<tr>
+        <td>${arrayDataFilter[i][0]}</td>
+        <td>${parseInt(arrayDataFilter[i][1]).toFixed(2)}%</td>
         </tr>`
         }
    
-        
-tablasFiltradas.innerHTML = templateTable1;      
-      
+   tablasFiltradas.innerHTML = templateTable;      
+   tablasOrder.classList.add('hide');
  });
-  */
+  
 });
-
-
 
