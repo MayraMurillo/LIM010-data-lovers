@@ -1,151 +1,197 @@
-// --- ESTO ES TODO LO RELACIONADO A LA PRIMERA PANTALLA --- //
+    // --- ESTO ES TODO LO RELACIONADO A LA PRIMERA PANTALLA --- //
 // declarando variables //
-const password = document.getElementById('pw');
-const submit = document.getElementById('sbmt');
 const newParagraph = document.getElementById('alert');
-
-//variable de vistas 
-const loginn = document.getElementById('login');
+const carrucel = document.getElementById('slider');
+//variable de vistas
 const view_one = document.getElementById('view-one');
+const numInicial = document.getElementById('year_one');
+const numFinal = document.getElementById('year_two');
+const btnBuscar = document.getElementById('buscador');
+const loginn = document.getElementById('login');
+const seleccionarPais = document.getElementById('select-pais');
+const indicadorporPaises = document.getElementById('pais-Peru');
+const tablasIndicador = document.getElementById('tablas');
+const showNombreIndicador = document.getElementById('nombreIndicador');
+const order = document.getElementById('ordenar');
+const tablasOrder = document.getElementById('tablasOrdenadas');
+const tablasFiltradas = document.getElementById('tablasFiltradas');
 
-// asignando contador de intentos //
-let counter = 0;
+datos = WORLDBANK;
+arrDatos = Object.values(WORLDBANK);
 
-// jalando datos de contraseña //
-submit.addEventListener('click', () => {
-  if (password.value === 'L') {
-    // alert('hola');
-    loginn.classList.add('hide');
-    // view_one.classList.replace('hide', 'show');
-    view_one.classList.add('show');
-
-    counter = 0;
-  } else if (counter < 3) {
-    counter++;
-    newParagraph.innerHTML = 'Contraseña errada, tenga cuidado. Sólo tiene 3 intentos';
+//Contador de intentos: 
+const obtenerClick = document.getElementById('sbmt');
+const contraseña = document.getElementById('pw');
+const usuario = document.getElementById('email');
+let cuenta = 2;
+obtenerClick.addEventListener('click', () => {
+  if (contraseña.value === '' && usuario.value === '') {
+    document.getElementById('login').classList.add('ocultar');
+    document.getElementById('view-two').classList.remove('ocultar');
+    document.getElementById('view-one').classList.remove('ocultar');
+    contraseña.value = '';
+    usuario.value = '';
+  } else if (cuenta === 0) {
+    document.getElementById('pantalla-bloqueo').classList.remove('ocultar');
+    document.getElementById('login').classList.add('ocultar');
+    contraseña.value = '';
   } else {
-    newParagraph.innerHTML = 'ACCESO DENEGADO';
+    newParagraph.innerHTML = 'Contraseña errada, tenga cuidado. Sólo tiene 3 intentos';
+    contraseña.value = '';
+    cuenta--;
   }
 });
 
-//--- ACA VA TODO LO RELACIONADO A LA SEGUNDA PANTALLA --- //
-// declaracion de data //
-const peruData = WORLDBANK.PER.indicators;
-const mexicoData = WORLDBANK.MEX.indicators;
-const chileData = WORLDBANK.CHL.indicators;
-const brazilData = WORLDBANK.BRA.indicators;
+
+let paisSeleccionado = '';
+seleccionarPais.addEventListener('change', (event) => {
+  document.getElementById('view-three').classList.remove('ocultar');
+  document.getElementById('view-two').classList.add('ocultar');
+  paisSeleccionado = event.target.value;
+  indicadorporPaises.innerHTML = mostrarIndicador(indicadorPaises(datos, paisSeleccionado));
+  return paisSeleccionado;
+});
+
+indicadorporPaises.addEventListener('click', (event) => {
+  let indexIndicador = event.target.id;
+  let indicadorNombre = datos[paisSeleccionado].indicators[indexIndicador].indicatorName;
+  const dataa = datos[paisSeleccionado].indicators[indexIndicador].data;
+  const arrayData = Object.entries(dataa);
+
+  let templateTable = `
+ <tr>
+   <th>Año</th>
+   <th>Porcentaje</th> 
+ </tr>`;
+
+  let tablaDatos = document.getElementById('tablas');
 
 
-// declaracion de vistas del menu PAISES //
-const peruOption = document.getElementById('peruMenu');
-const mexicoOption = document.getElementById('mexicoMenu');
-const chileOption = document.getElementById('chileMenu');
-const brazilOption = document.getElementById('brazilMenu');
+  for (let i = 0; i < arrayData.length; i++) {
 
-// declaracion y ocultar despliegue de paises //
-const peruView = document.getElementById('peru');
-const mexicoView = document.getElementById('mexico');
-const chileView = document.getElementById('chile');
-const brazilView = document.getElementById('brazil');
-const peruPercentage = document.getElementById('peruPercent')
-
-//ocultar vistas de despliegue de pais //
-peruView.classList.add('hide');
-mexicoView.classList.add('hide');
-chileView.classList.add('hide');
-brazilView.classList.add('hide');
-
-// funcionalidad de las vistas //
-peruOption.addEventListener("click", () =>{
-  peruView.classList.remove('hide');
-  mexicoView.classList.add('hide');
-  chileView.classList.add('hide');
-  brazilView.classList.add('hide');
-})
-
-mexicoOption.addEventListener("click", () =>{
-  peruView.classList.add('hide');
-  mexicoView.classList.remove('hide');
-  chileView.classList.add('hide');
-  brazilView.classList.add('hide');
-})
-
-chileOption.addEventListener("click", () =>{
-  peruView.classList.add('hide');
-  mexicoView.classList.add('hide');
-  chileView.classList.remove('hide');
-  brazilView.classList.add('hide');
-})
-
-brazilOption.addEventListener("click", () =>{
-  peruView.classList.add('hide');
-  mexicoView.classList.add('hide');
-  chileView.classList.add('hide');
-  brazilView.classList.remove('hide');
-})
-
-const showData = (data) => {
-  let show = '';
-  for (let i=0; i<data.length; i++) {
-    let call = `<li><a href=""> ${data[i].indicatorName} </a></li>`;
-
-    show += call
+    if(arrayData[i][1] == "") {
+    }
+    else {
+      templateTable += `<tr>
+     <td>${arrayData[i][0]}</td>
+     <td>${parseInt(arrayData[i][1]).toFixed(2)}%</td>
+   </tr>`
+  }    
   }
-  return show;
-};
+    indicadorporPaises.classList.add('hide');
+    showNombreIndicador.innerHTML = indicadorNombre;
+    tablaDatos.innerHTML = templateTable;
 
-peru.innerHTML = showData(peruData);
-mexico.innerHTML = showData(mexicoData);
-chile.innerHTML = showData(chileData);
-brazil.innerHTML = showData(brazilData);
+    ordenar.addEventListener('change', (event) => {
+    let selectOrder = event.target.value;
 
-//ORDENANDO INDICADORES
-const indicadorAsc = document.getElementById('indi-asc');
-const indicadorDsc = document.getElementById('indi-dsc');
+    //ORDENAR DE MENOR A MAYOR //
+    arrayData.sort(function (a, b) {
+      if (a[1] > b[1]) {
+        return 1;
+      }
+      else 
+        return -1;
+    });
 
-const information = Object.values(WORLDBANK.PER.indicators);
-const newData = () => {
-  let newArray = [];
-  for (let i=0; i<information.length; i++) {
-  newArray.push({
-    year: Object.keys(information[i].data),
-    percentage: Object.values(information[i].data)
-  })
-//console.log(newArray);
-dataStorage = newArray;
-  }
-}
-newData();
-const information = Object.keys(WORLDBANK.PER.indicators[0].data);
-const porcentaje = Object.values(WORLDBANK.PER.indicators[0].data);
-const nuevaData = () => {
-  let arreglo = [];
-  for (let i=0; i<information.length; i++) {
-  arreglo.push(information[i],porcentaje[i])
-}
-console.log(arreglo);
-return arreglo;
-}
-nuevaData();
+    let templateTable = `
+    <tr>
+      <th>Año</th>
+      <th>Porcentaje</th> 
+    </tr>`;
 
-indicadorAsc.innerHTML = nuevaData(peruData);
+    if (selectOrder === "ascendente"){
+      for (let i = 0; i < arrayData.length; i++) {
+        if(arrayData[i][1] == "") {
+        }
+        else {
+
+      templateTable += `<tr>
+      <td>${arrayData[i][0]}</td>
+      <td>${parseInt(arrayData[i][1]).toFixed(2)}%</td>
+    </tr>`
+        }
+
+        
+    tablasOrder.innerHTML = templateTable;
+tablaDatos.classList.add('hide');
+   }
+   }
+
   
-  
-  
+   //ORDENAR DE MAYOR A MENOR //
+   arrayData.sort(function (a, b) {
+    if (a[1] < b[1]) {
+      return 1;
+    }
+    else 
+      return -1;
+  });
+
+  if (selectOrder === "descendente"){
+    for (let i = 0; i < arrayData.length; i++) {
+      if(arrayData[i][1] == "") {
+      }
+      else {
+
+    templateTable += `<tr>
+    <td>${arrayData[i][0]}</td>
+    <td>${parseInt(arrayData[i][1]).toFixed(2)}%</td>
+  </tr>`
+      }
+
+      
+  tablasOrder.innerHTML = templateTable;
+  tablaDatos.classList.add('hide');
+ }
+ }
 
 
-
-
+});
 /*
-const newData = () => {
-  let newArray = [];
-  for (let i=0; i<information.length; i++) {
-  newArray.push({
-    year: Object.keys(information[i].data),
-    percentage: Object.values(information[i].data)
-  })
-console.log(newArray);
-  }
-}
-newData();
-*/
+const filtrar = document.getElementById('buscador');
+filtrar.addEventListener('click', (event) => {
+  const inicial = document.getElementById('year_one');
+  console.log(inicial.value)
+  const final = document.getElementById('year_two');
+  console.log(final.value)
+  let tablaDatos = document.getElementsByTagName('tr');
+  const dataa = datos[paisSeleccionado].indicators[indexIndicador].data;
+  console.log(dataa)
+  const arrayData = Object.entries(dataa);
+  console.log(arrayData)
+  const años = Object.keys(dataa);
+  const porcentajes = Object.values(dataa);
+  console.log(años)
+  console.log(porcentajes)
+
+  let templateTable1 = '';
+
+ for(let i=0; i<años.length; i++){
+   if(años >= inicial && años <= final)
+
+   templateTable1 = `
+      <tr>
+        <th>Año</th>
+        <th>Porcentaje</th> 
+      </tr>`;
+        templateTable1 += `<tr>
+        <td>${años[i]}</td>
+        <td>${parseInt(porcentajes[i]).toFixed(2)}%</td>
+        </tr>`
+        }
+   
+        
+tablasFiltradas.innerHTML = templateTable1;      
+      
+ });
+  */
+});
+
+averageValue: (dato)=>{
+  let sum = dato.reduce((a, b)=>{
+  return a + b;
+  });
+  let divider = dato.length;
+  return sum / divider;
+
