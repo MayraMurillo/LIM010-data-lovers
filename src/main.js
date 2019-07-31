@@ -15,6 +15,8 @@ const showNombreIndicador = document.getElementById('nombreIndicador');
 const order = document.getElementById('ordenar');
 const tablasOrder = document.getElementById('tablasOrdenadas');
 const tablasFiltradas = document.getElementById('tablasFiltradas');
+const promedio = document.getElementById('promedio');
+const resultadoPromedio = document.getElementById('rptaProm');
 
 datos = WORLDBANK;
 arrDatos = Object.values(WORLDBANK);
@@ -81,6 +83,17 @@ indicadorporPaises.addEventListener('click', (event) => {
     indicadorporPaises.classList.add('hide');
     showNombreIndicador.innerHTML = indicadorNombre;
     tablaDatos.innerHTML = templateTable;
+
+promedio.addEventListener('click', (event) =>{
+let valores = Object.values(dataa);
+let valoresFiltrados = valores.filter(valores => valores !="" );
+let sum = valoresFiltrados.reduce((previous, current) => current += previous);
+let avg = parseInt(sum/valoresFiltrados.length);
+
+resultadoPromedio.innerHTML = "El promedio del presente indicador es de" + avg + "%";
+
+
+});
 
     ordenar.addEventListener('change', (event) => {
     let selectOrder = event.target.value;
