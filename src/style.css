@@ -3,11 +3,37 @@
   padding:0px;
 }
 body{
-  background-image: url('./imagenes/imgg.jpg');
   background-size: cover;
     display: flex;
     flex-direction: column;
 }
+
+.info{
+  font-size: 25px;
+  display: block;
+  text-align: center;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+
+}
+.v2{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.logo{
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .main{
   height: calc(83vh - 25px);
 }
@@ -63,6 +89,7 @@ body{
   text-align: center;
   margin-left: 80px;
 }
+
 .text{
   text-align: right;
   height: 42px;

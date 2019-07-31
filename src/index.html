@@ -37,6 +37,7 @@
 
       <form class="login">
         <div class="sheet-1">
+          <img src="imagenes/logo.png" alt="" class="logo">
           <label class="form-item">Correo Electrónico</label>
           <input class="form-item" type="email" id="email" />
           <br>
@@ -52,28 +53,31 @@
 
     <!--PANTALLA 2 - INICIO: -->
     <div id="view-two" class="ocultar">
-
-
+      <p class="info">"La data es conocimiento que nos ayuda a tomar mejores decisiones"</p>
+      <img src="imagenes/Data-D4A.png" alt="" class="v2">
 
     </div>
 
     <!--PANTALLA 3: -->
     <div id="view-three" class="ocultar">
       <div id="pais-Peru" class="indicado-peru">
-        <ul id="pais" class="scroll">
-
-        </ul>
+        <ul id="pais" class="scroll"></ul>
       </div>
       <div id="nombreIndicador"></div>
       <table id="tablas"></table>
       <table id="tablasOrdenadas"></table>
       <table id="tablasFiltradas"></table>
+      </div>
+    </div>
 
-      <div id="rangos">
-          <select id="ordenar" >
-              <option value="ascendente" >ASCENDENTE</option>
-              <option value="descendente" selected>DESCENDENTE</option>
-            </select>
+
+    <!--PANTALLA 3: -->
+    <div id="view-for">
+        <div id="rangos">
+        <select id="ordenar">
+          <option value="ascendente">ASCENDENTE</option>
+          <option value="descendente" selected>DESCENDENTE</option>
+        </select>
         <p> Indique el año que quiere ver para este indicador</p>
         <label>Desde:
           <input type="number" id="year_one" max="2017" min="1960" value="1960">
@@ -83,19 +87,12 @@
         </label>
         <button type="submit" id="buscador" class="buscar">FILTRAR</button>
         <Label>
-        <p id="rptaProm"></p>
-        <button type="button" id="promedio">PROMEDIO</button>
-       </Label>
-
-      </div>
+          <p id="rptaProm"></p>
+          <button type="button" id="promedio">PROMEDIO</button>
+        </Label>
     </div>
 
-
-    <!--PANTALLA 3: -->
-    <div id="view-for">
-    </div>
-
-
+    
     <!--PANTALLA DE BLOQUEO: -->
     <div id="pantalla-bloqueo" class="ocultar">
       <h1> Lo sentimos, agotaste tus intentos. </h1>
