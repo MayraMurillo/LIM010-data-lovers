@@ -188,10 +188,5 @@ tablasFiltradas.innerHTML = templateTable1;
   */
 });
 
-averageValue: (dato)=>{
-  let sum = dato.reduce((a, b)=>{
-  return a + b;
-  });
-  let divider = dato.length;
-  return sum / divider;
+
 
